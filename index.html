@@ -1,102 +1,109 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vivek Chudasama – ServiceNow Developer | ITSM · CSM · HRSD</title>
-  <meta name="description" content="Portfolio of Vivek Chudasama, ServiceNow Developer specializing in ITSM, CSM, HRSD, Integrations, and Automation. Based in Gandhinagar, Gujarat." />
-  <meta name="author" content="Vivek Chudasama" />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://vivekmchudasama-del.github.io/" />
+  <meta charset="UTF-8" />
+  <title>Vivek Chudasama | ServiceNow Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Vivek Chudasama – ServiceNow Developer" />
-  <meta property="og:description" content="ITSM · CSM · HRSD · Integrations · Automation. Gandhinagar, Gujarat." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://vivekmchudasama-del.github.io/" />
-  <!-- Upload og-image.png later if you want rich previews -->
-  <meta property="og:image" content="https://vivekmchudasama-del.github.io/og-image.png" />
+  <!-- SEO -->
+  <meta name="description" content="ServiceNow Developer portfolio - ITSM, CSM, HRSD">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Vivek Chudasama – ServiceNow Developer" />
-  <meta name="twitter:description" content="ITSM · CSM · HRSD · Integrations · Automation. Gandhinagar, Gujarat." />
-  <meta name="twitter:image" content="https://vivekmchudasama-del.github.io/og-image.png" />
+  <!-- React CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-  <!-- Favicon (inline SVG data URI) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2322c55e'/%3E%3Ctext x='32' y='40' font-size='28' text-anchor='middle' fill='white' font-family='Arial'%3EV%3C/text%3E%3C/svg%3E" />
+  <!-- Babel (to write JSX in browser) -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <!-- Base styles + theme -->
   <style>
-    :root {
-      --bg: #0f172a;        /* slate-900 */
-      --card: #111827;      /* gray-900 */
-      --text: #e5e7eb;      /* gray-200 */
-      --muted: #9ca3af;     /* gray-400 */
-      --primary: #22c55e;   /* green-500 */
-      --primary-700: #15803d;
-      --accent: #38bdf8;    /* sky-400 */
-      --link: #93c5fd;      /* blue-300 */
-      --border: #1f2937;    /* gray-800 */
-      --shadow: 0 10px 25px rgba(0,0,0,.25);
-    }
-    :root.light {
-      --bg: #f7fafc; --card: #ffffff; --text: #0f172a; --muted: #475569;
-      --border: #e5e7eb; --link: #1e40af; --shadow: 0 10px 25px rgba(16,24,39,.08);
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans";
-      background: radial-gradient(1200px 600px at 50% -100px, rgba(56,189,248,.15), transparent 60%),
-                  linear-gradient(180deg, #0b1020 0%, var(--bg) 45%, var(--bg) 100%);
-      color: var(--text); line-height: 1.6;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
     }
-    a { color: var(--link); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    header {
+      padding: 40px;
+      text-align: center;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #0f172a;
+    }
+    .card {
+      background: #111827;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px auto;
+      max-width: 900px;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .tag {
+      display: inline-block;
+      padding: 6px 10px;
+      margin: 4px;
+      background: #1f2937;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
 
-    /* Header / Nav */
-    header { position: sticky; top: 0; backdrop-filter: blur(8px);
-      background: color-mix(in srgb, var(--card) 60%, transparent);
-      border-bottom: 1px solid var(--border); z-index: 50; }
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
-    .brand { font-weight: 800; letter-spacing: .2px; }
-    .nav-links { display: flex; gap: 14px; align-items: center; }
-    .nav-links a { padding: 8px 12px; border-radius: 8px; }
-    .nav-links a:hover { background: color-mix(in srgb, var(--card) 90%, transparent); }
-    .theme-toggle { border: 1px solid var(--border); background: var(--card); color: var(--text);
-      padding: 8px 12px; border-radius: 999px; cursor: pointer; }
-    .menu-icon { display: none; cursor: pointer; padding: 8px; border-radius: 8px; }
-    .menu-icon:hover { background: color-mix(in srgb, var(--card) 90%, transparent); }
-    @media (max-width: 820px) {
-      .nav-links { display: none; }
-      .menu-icon { display: block; }
-      .menu-panel { display: none; border-top: 1px solid var(--border); padding: 10px 0; animation: fade .2s ease-in; }
-      .menu-panel a { display: block; padding: 10px; border-radius: 8px; }
-      @keyframes fade { from {opacity: 0} to {opacity:1} }
+  <script type="text/babel">
+    function Header() {
+      return (
+        <header>
+          <h1>Vivek Chudasama</h1>
+          <h3>ServiceNow Developer | ITSM • CSM • HRSD</h3>
+          <p>Gandhinagar, Gujarat</p>
+        </header>
+      );
     }
 
-    /* Hero */
-    .hero { padding: 54px 0 40px; text-align: center; }
-    .hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin: 0 0 8px; }
-    .hero .tagline { font-size: 1.05rem; color: var(--muted); max-width: 720px; margin: 0 auto; }
-    .hero .meta { margin-top: 12px; color: var(--muted); }
-    .cta { margin-top: 20px; display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px;
-      border: 1px solid var(--border); background: var(--card); color: var(--text); box-shadow: var(--shadow);
-      transition: transform .15s ease, filter .15s ease; }
-    .btn.primary { background: linear-gradient(135deg, var(--primary), var(--primary-700)); color: #fff; border-color: #0f5132; }
-    .btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
+    function Skills() {
+      const skills = [
+        "ITSM", "CSM", "HRSD",
+        "Flow Designer", "Script Includes",
+        "REST Integrations", "Automation"
+      ];
+      return (
+        <div className="card">
+          <h2>Skills</h2>
+          {skills.map(skill => (
+            <span className="tag" key={skill}>{skill}</span>
+          ))}
+        </div>
+      );
+    }
 
-    /* Sections */
-    section { padding: 30px 0; }
-    .section-title { font-size: clamp(1.4rem, 2.5vw, 1.8rem); margin: 0 0 12px; text-align: left; }
-    .subtle { color: var(--muted); }
+    function Projects() {
+      return (
+        <div className="card">
+          <h2>Key Work</h2>
+          <ul>
+            <li>AI‑assisted case automation</li>
+            <li>HRSD onboarding workflows</li>
+            <li>CSM case routing & optimization</li>
+          </ul>
+        </div>
+      );
+    }
 
-    /* Cards & grids */
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: var(--shadow); }
-    .grid { display: grid; gap: 16px; }
-    .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    function App() {
+      return (
+        <>
+          <Header />
+          <Skills />
+          <Projects />
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>
