@@ -7,282 +7,96 @@
   <meta name="description" content="Portfolio of Vivek Chudasama, ServiceNow Developer specializing in ITSM, CSM, HRSD, Integrations, and Automation. Based in Gandhinagar, Gujarat." />
   <meta name="author" content="Vivek Chudasama" />
   <meta name="robots" content="index,follow" />
-  <!-- Canonical (update if you use a custom domain) -->
-  <link rel="canonical" href="https://vivekchudasama.github.io/" />
+  <link rel="canonical" href="https://vivekmchudasama-del.github.io/" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Vivek Chudasama – ServiceNow Developer" />
   <meta property="og:description" content="ITSM · CSM · HRSD · Integrations · Automation. Gandhinagar, Gujarat." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://vivekchudasama.github.io/" />
-  <!-- Replace with a real image URL you host (1200×630 recommended) -->
-  <meta property="og:image" content="https://vivekchudasama.github.io/og-image.png" />
+  <meta property="og:url" content="https://vivekmchudasama-del.github.io/" />
+  <!-- Upload og-image.png later if you want rich previews -->
+  <meta property="og:image" content="https://vivekmchudasama-del.github.io/og-image.png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vivek Chudasama – ServiceNow Developer" />
   <meta name="twitter:description" content="ITSM · CSM · HRSD · Integrations · Automation. Gandhinagar, Gujarat." />
-  <meta name="twitter:image" content="https://vivekchudasama.github.io/og-image.png" />
+  <meta name="twitter:image" content="https://vivekmchudasama-del.github.io/og-image.png" />
 
   <!-- Favicon (inline SVG data URI) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2322c55e'/%3E%3Ctext x='32' y='38' font-size='28' text-anchor='middle' fill='white' font-family='Arial'%3EV%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2322c55e'/%3E%3Ctext x='32' y='40' font-size='28' text-anchor='middle' fill='white' font-family='Arial'%3EV%3C/text%3E%3C/svg%3E" />
 
+  <!-- Base styles + theme -->
   <style>
     :root {
-      --bg: #0f172a;             /* slate-900 */
-      --card: #111827;           /* gray-900 */
-      --text: #e5e7eb;           /* gray-200 */
-      --muted: #9ca3af;          /* gray-400 */
-      --primary: #22c55e;        /* green-500 */
-      --accent: #38bdf8;         /* sky-400 */
-      --link: #93c5fd;           /* blue-300 */
-      --border: #1f2937;         /* gray-800 */
+      --bg: #0f172a;        /* slate-900 */
+      --card: #111827;      /* gray-900 */
+      --text: #e5e7eb;      /* gray-200 */
+      --muted: #9ca3af;     /* gray-400 */
+      --primary: #22c55e;   /* green-500 */
+      --primary-700: #15803d;
+      --accent: #38bdf8;    /* sky-400 */
+      --link: #93c5fd;      /* blue-300 */
+      --border: #1f2937;    /* gray-800 */
+      --shadow: 0 10px 25px rgba(0,0,0,.25);
+    }
+    :root.light {
+      --bg: #f7fafc; --card: #ffffff; --text: #0f172a; --muted: #475569;
+      --border: #e5e7eb; --link: #1e40af; --shadow: 0 10px 25px rgba(16,24,39,.08);
     }
     * { box-sizing: border-box; }
-    html, body { height: 100%; }
+    html, body { height: 100%; scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
-      background: linear-gradient(180deg, #0b1020 0%, var(--bg) 50%, #0b1020 100%);
-      color: var(--text);
-      line-height: 1.6;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans";
+      background: radial-gradient(1200px 600px at 50% -100px, rgba(56,189,248,.15), transparent 60%),
+                  linear-gradient(180deg, #0b1020 0%, var(--bg) 45%, var(--bg) 100%);
+      color: var(--text); line-height: 1.6;
     }
     a { color: var(--link); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .container { width: 100%; max-width: 1000px; margin: 0 auto; padding: 24px; }
-
-    /* Accessibility */
-    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-    .skip-link:focus { left: 16px; top: 16px; width: auto; height: auto; background: var(--accent); color: #0b1020; padding: 10px; border-radius: 8px; }
+    .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
     /* Header / Nav */
-    header { position: sticky; top: 0; backdrop-filter: blur(8px); background: rgba(17,24,39,0.6); border-bottom: 1px solid var(--border); z-index: 50; }
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; }
-    .brand { font-weight: 700; letter-spacing: 0.2px; }
-    .nav ul { display: flex; gap: 16px; list-style: none; padding: 0; margin: 0; }
-    .nav a { padding: 8px 10px; border-radius: 8px; }
-    .nav a:hover { background: #0b1324; }
+    header { position: sticky; top: 0; backdrop-filter: blur(8px);
+      background: color-mix(in srgb, var(--card) 60%, transparent);
+      border-bottom: 1px solid var(--border); z-index: 50; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+    .brand { font-weight: 800; letter-spacing: .2px; }
+    .nav-links { display: flex; gap: 14px; align-items: center; }
+    .nav-links a { padding: 8px 12px; border-radius: 8px; }
+    .nav-links a:hover { background: color-mix(in srgb, var(--card) 90%, transparent); }
+    .theme-toggle { border: 1px solid var(--border); background: var(--card); color: var(--text);
+      padding: 8px 12px; border-radius: 999px; cursor: pointer; }
+    .menu-icon { display: none; cursor: pointer; padding: 8px; border-radius: 8px; }
+    .menu-icon:hover { background: color-mix(in srgb, var(--card) 90%, transparent); }
+    @media (max-width: 820px) {
+      .nav-links { display: none; }
+      .menu-icon { display: block; }
+      .menu-panel { display: none; border-top: 1px solid var(--border); padding: 10px 0; animation: fade .2s ease-in; }
+      .menu-panel a { display: block; padding: 10px; border-radius: 8px; }
+      @keyframes fade { from {opacity: 0} to {opacity:1} }
+    }
 
     /* Hero */
-    .hero { padding: 64px 24px; text-align: center; }
-    .hero h1 { font-size: 2.2rem; margin: 0 0 8px; }
-    .hero .tagline { font-size: 1.05rem; color: var(--muted); }
-    .hero .meta { margin-top: 14px; color: var(--muted); }
-    .cta { margin-top: 22px; display: inline-flex; gap: 12px; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--card); color: var(--text); }
-    .btn.primary { background: linear-gradient(135deg, var(--primary), #16a34a); border-color: #115e30; }
-    .btn:hover { filter: brightness(1.1); }
+    .hero { padding: 54px 0 40px; text-align: center; }
+    .hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin: 0 0 8px; }
+    .hero .tagline { font-size: 1.05rem; color: var(--muted); max-width: 720px; margin: 0 auto; }
+    .hero .meta { margin-top: 12px; color: var(--muted); }
+    .cta { margin-top: 20px; display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px;
+      border: 1px solid var(--border); background: var(--card); color: var(--text); box-shadow: var(--shadow);
+      transition: transform .15s ease, filter .15s ease; }
+    .btn.primary { background: linear-gradient(135deg, var(--primary), var(--primary-700)); color: #fff; border-color: #0f5132; }
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
 
     /* Sections */
-    section { padding: 36px 24px; }
-    .section-title { font-size: 1.6rem; margin-bottom: 12px; }
-    .card { background: rgba(17,24,39,0.7); border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
+    section { padding: 30px 0; }
+    .section-title { font-size: clamp(1.4rem, 2.5vw, 1.8rem); margin: 0 0 12px; text-align: left; }
+    .subtle { color: var(--muted); }
+
+    /* Cards & grids */
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: var(--shadow); }
     .grid { display: grid; gap: 16px; }
     .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .muted { color: var(--muted); }
-
-    /* Lists */
-    .pill-list { display: flex; flex-wrap: wrap; gap: 10px; }
-    .pill { padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); background: #0b1324; font-size: 0.95rem; }
-
-    /* Footer */
-    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; color: var(--muted); }
-
-    /* Responsive */
-    @media (max-width: 780px) {
-      .grid.cols-2 { grid-template-columns: 1fr; }
-      .grid.cols-3 { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 1.8rem; }
-    }
-
-    /* Print */
-    @media print {
-      body { background: white; color: black; }
-      header, .cta { display: none; }
-      .card { border: 1px solid #ccc; }
-    }
-  </style>
-
-  <!-- Structured Data: WebSite -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": "https://vivekchudasama.github.io/",
-    "name": "Vivek Chudasama – ServiceNow Developer",
-    "description": "Portfolio of Vivek Chudasama, ServiceNow Developer specializing in ITSM, CSM, HRSD, Integrations, and Automation.",
-    "inLanguage": "en"
-  }
-  </script>
-
-  <!-- Structured Data: Person -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Vivek Chudasama",
-    "jobTitle": "ServiceNow Developer",
-    "email": "mailto:vivek.chudasama1993@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Gandhinagar",
-      "addressRegion": "Gujarat",
-      "addressCountry": "IN"
-    },
-    "sameAs": [
-      "https://www.linkedin.com/in/REPLACE-LINK"
-    ]
-  }
-  </script>
-</head>
-<body>
-  <a href="#main" class="skip-link">Skip to main content</a>
-  <header>
-    <nav class="nav container" aria-label="Primary">
-      <div class="brand" aria-label="Brand">Vivek Chudasama</div>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="main">
-    <!-- Hero -->
-    <section class="hero container" id="home" aria-label="Hero">
-      <h1>ServiceNow Developer – ITSM · CSM · HRSD</h1>
-      <p class="tagline">Delivering secure, scalable, and automation‑driven ServiceNow solutions for enterprise workflows.</p>
-      <p class="meta">📍 Gandhinagar, Gujarat · 📧 <a href="mailto:vivek.chudasama1993@gmail.com">vivek.chudasama1993@gmail.com</a> · 🔗 <a href="https://www.linkedin.com/in/REPLACE-LINK" aria-label="LinkedIn Profile">LinkedIn</a></p>
-      <div class="cta" role="group" aria-label="Primary Actions">
-        <a class="btn primary" href="#contact" aria-label="Contact Vivek">Contact Me</a>
-        <a class="btn" href="#projects" aria-label="View projects">View Projects</a>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section class="container" id="about" aria-label="About">
-      <h2 class="section-title">About Me</h2>
-      <div class="card">
-        <p>
-          I am a ServiceNow Developer with 8+ years of experience specializing in <strong>ITSM, CSM, HRSD, Integrations, and Workflow Automation</strong>.
-          I design practical, scalable, and secure solutions that reduce manual effort and streamline enterprise processes.
-          My expertise spans requirements analysis, platform configuration, automations, and adherence to best practices.
-        </p>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section class="container" id="skills" aria-label="Skills & Expertise">
-      <h2 class="section-title">Skills &amp; Expertise</h2>
-      <div class="grid cols-3">
-        <article class="card" aria-label="ServiceNow Modules">
-          <h3>ServiceNow Modules</h3>
-          <ul>
-            <li>ITSM (Incident, Change, Problem, Knowledge)</li>
-            <li>CSM (Case Management, Customer Workflows)</li>
-            <li>HRSD (Core HR, HR Case Management, Onboarding)</li>
-            <li>Service Catalog &amp; Record Producers</li>
-            <li>Flow Designer &amp; Workflows</li>
-            <li>Scoped Applications</li>
-          </ul>
-        </article>
-        <article class="card" aria-label="Automation & Logic">
-          <h3>Automation &amp; Logic</h3>
-          <ul>
-            <li>Business Rules, Client Scripts, UI Policies</li>
-            <li>Script Includes &amp; GlideRecord</li>
-            <li>Notification Automation</li>
-            <li>Data Transformations &amp; Import Set Logic</li>
-          </ul>
-        </article>
-        <article class="card" aria-label="Integrations">
-          <h3>Integrations</h3>
-          <ul>
-            <li>REST / SOAP</li>
-            <li>MID Server integrations</li>
-            <li>External system coordination</li>
-            <li>Secure data sync patterns</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- Projects (Short & Confidentiality-safe) -->
-    <section class="container" id="projects" aria-label="Projects">
-      <h2 class="section-title">Key Projects</h2>
-      <div class="grid cols-2">
-        <article class="card">
-          <h3>AI‑Assisted Case Automation</h3>
-          <p class="muted">Platform-side logic to notify an external AI engine for analysis and routing, improving resolution efficiency while keeping data secure.</p>
-        </article>
-        <article class="card">
-          <h3>HRSD Onboarding Workflow</h3>
-          <p class="muted">Custom onboarding via Record Producers, automated field population, approval routing, and manager coordination.</p>
-        </article>
-        <article class="card">
-          <h3>CSM Case Optimization</h3>
-          <p class="muted">Dynamic filtering, routing logic, and portal usability improvements to streamline customer case intake.</p>
-        </article>
-        <article class="card">
-          <h3>ITSM Process Enhancements</h3>
-          <p class="muted">Automation across Incident/Change/Problem, notification optimization, SLA/reporting support, and knowledge improvements.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Highlights -->
-    <section class="container" id="highlights" aria-label="Highlights">
-      <h2 class="section-title">Professional Highlights</h2>
-      <div class="card">
-        <ul class="pill-list">
-          <li class="pill">Automation across ITSM, CSM, HRSD</li>
-          <li class="pill">Streamlined onboarding cycle time</li>
-          <li class="pill">Reusable Script Includes & utilities</li>
-          <li class="pill">Secure integrations & best practices</li>
-          <li class="pill">Rapid delivery under strict timelines</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Summary -->
-    <section class="container" id="summary" aria-label="Summary">
-      <h2 class="section-title">Summary</h2>
-      <div class="card">
-        <p>
-          ServiceNow Developer with comprehensive experience across ITSM, CSM, and HRSD. Strong in scripting, workflows, automation,
-          integrations, and building scalable configurations. Focused on efficient, maintainable, and user‑friendly solutions that
-          enhance operational performance.
-        </p>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="container" id="contact" aria-label="Contact">
-      <h2 class="section-title">Contact</h2>
-      <div class="card">
-        <p>I’m open to opportunities in ServiceNow development, automation, AI‑driven workflows, HRSD, and CSM.</p>
-        <p>
-          📧 <a href="mailto:vivek.chudasama1993@gmail.com">vivek.chudasama1993@gmail.com</a><br/>
-          📍 Gandhinagar, Gujarat<br/>
-          🔗 <a href="https://www.linkedin.com/in/REPLACE-LINK">LinkedIn</a>
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <address>
-      Gandhinagar, Gujarat · India · Email: <a href="mailto:vivek.chudasama1993@gmail.com">vivek.chudasama1993@gmail.com</a>
-    </address>
-    © <span id="year"></span> Vivek Chudasama · Built with HTML & CSS
-  </footer>
-
-  <script>
-    // Update year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
