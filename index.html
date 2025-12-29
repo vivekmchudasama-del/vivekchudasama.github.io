@@ -1,142 +1,104 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Vivek Chudasama | ServiceNow Developer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- SEO -->
-  <meta name="description" content="ServiceNow Developer Portfolio - ITSM, CSM, HRSD, Enterprise Automation">
+  <meta name="description" content="ServiceNow Developer Portfolio – ITSM, CSM, HRSD">
   <meta name="author" content="Vivek Chudasama">
+  <meta name="robots" content="index,follow">
 
-  <style>
-    /* ========================
-       DESIGN TOKENS (LXP STYLE)
-       ======================== */
-    :root {
-      --bg-page: #f4f5f7;
-      --bg-surface: #ffffff;
-      --bg-muted: #eaecef;
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-      --brand-primary: #0620a8;
-      --brand-accent: #00c6ff;
+<body>
 
-      --text-primary: #1f2937;
-      --text-secondary: #6b7280;
+<header>
+  <h3>Vivek Chudasama</h3>
+  <nav>
+    <a href="#overview">Overview</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#learning">Learning Paths</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-      --radius-lg: 16px;
-      --radius-md: 12px;
-      --radius-sm: 8px;
+<section class="hero" id="overview">
+  <h1>Learn. Build. Transform.</h1>
+  <p>
+    Enterprise‑grade ServiceNow development across ITSM, CSM, HRSD,
+    automation and integrations.
+  </p>
+  <button>Explore My Work</button>
+</section>
 
-      --shadow-sm: 0 4px 10px rgba(0,0,0,0.06);
-      --shadow-lg: 0 12px 32px rgba(0,0,0,0.08);
+<section id="expertise">
+  <h2>Expertise Areas</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>ITSM Automation</h3>
+      <p>Incident, Change, Problem, SLAs, Knowledge</p>
+    </div>
+    <div class="card">
+      <h3>HRSD Workflows</h3>
+      <p>Onboarding, lifecycle, approvals</p>
+    </div>
+    <div class="card">
+      <h3>CSM Solutions</h3>
+      <p>Customer‑centric case experience</p>
+    </div>
+    <div class="card">
+      <h3>Integrations</h3>
+      <p>REST, MID Server, secure orchestration</p>
+    </div>
+  </div>
+</section>
 
-      --ease: cubic-bezier(0.4, 0, 0.2, 1);
-    }
+<section id="learning">
+  <h2>Learning Paths</h2>
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: var(--bg-page);
-      color: var(--text-primary);
-    }
+  <div class="carousel-container">
+    <button class="carousel-nav left" onclick="scrollCarousel(-1)">❮</button>
 
-    /* ========================
-       HEADER
-       ======================== */
-    header {
-      background: var(--bg-surface);
-      box-shadow: var(--shadow-sm);
-      padding: 16px 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+    <div class="carousel" id="learningCarousel">
+      <div class="carousel-card">
+        <h4>ITSM Fundamentals</h4>
+        <span>Foundation</span>
+        <p>Enterprise ITSM best practices.</p>
+      </div>
+      <div class="carousel-card">
+        <h4>Advanced HRSD</h4>
+        <span>Employee Experience</span>
+        <p>Onboarding & automation.</p>
+      </div>
+      <div class="carousel-card">
+        <h4>CSM Optimization</h4>
+        <span>Customer Service</span>
+        <p>Case routing & portal UX.</p>
+      </div>
+      <div class="carousel-card">
+        <h4>AI Automation</h4>
+        <span>Next‑Gen</span>
+        <p>Human‑in‑the‑loop AI flows.</p>
+      </div>
+    </div>
 
-    header h3 {
-      margin: 0;
-      font-weight: 600;
-    }
+    <button class="carousel-nav right" onclick="scrollCarousel(1)">❯</button>
+  </div>
+</section>
 
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: vivek.chudasama1993@gmail.com</p>
+  <p>Location: Gandhinagar, Gujarat</p>
+</section>
 
-    nav a:hover {
-      color: var(--brand-primary);
-    }
+<footer>
+  © 2025 Vivek Chudasama · ServiceNow Developer
+</footer>
 
-    /* ========================
-       HERO (LXP FEEL)
-       ======================== */
-    .hero {
-      background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
-      color: white;
-      padding: 80px 32px;
-      border-radius: var(--radius-lg);
-      margin: 32px;
-    }
-
-    .hero h1 {
-      font-size: 44px;
-      margin-bottom: 12px;
-      font-weight: 700;
-    }
-
-    .hero p {
-      max-width: 600px;
-      font-size: 18px;
-      opacity: 0.95;
-    }
-
-    .hero button {
-      margin-top: 24px;
-      padding: 12px 24px;
-      background: white;
-      color: var(--brand-primary);
-      border: none;
-      border-radius: var(--radius-sm);
-      font-size: 16px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    /* ========================
-       SECTION
-       ======================== */
-    section {
-      padding: 32px;
-    }
-
-    section h2 {
-      margin-bottom: 20px;
-      font-size: 26px;
-    }
-
-    /* ========================
-       CARD GRID
-       ======================== */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: var(--bg-surface);
-      padding: 24px;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.25s var(--ease),
-                  box-shadow 0.25s var(--ease);
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
+<script src="app.js"></script>
+</body>
+</html>
