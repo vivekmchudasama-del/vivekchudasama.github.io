@@ -536,3 +536,31 @@ a{ color: inherit; }
   .grid{ grid-template-columns: 1fr; }
   .skills-grid{ grid-template-columns: 1fr; }
 }
+
+/* Highlights preview (under Details button) */
+.highlights-preview{
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+}
+
+.highlights-title{
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.highlights-preview ul{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text);
+}
+
+.highlights-preview li{
+  margin: 6px 0;
+  color: var(--muted);
+}
+
