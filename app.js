@@ -87,7 +87,7 @@
     openTo: "Open to relocation or remote roles in Canada, UAE, and Australia.",
 
     headline:
-      "Experienced and certified ServiceNow Developer with 8+ years of expertise across ITSM and CSM. Proven track record in scalable solutions, Virtual Agent, AI Search, NLU Workbench, and integrations (Microsoft Teams, Azure Translation, SAML). Strong Agile delivery and global client collaboration.",
+      "Helping teams resolve faster with ServiceNow automation, AI-enabled self‑service, and integrations.",
 
     links: [
       // Replace # with your real profiles
@@ -96,13 +96,14 @@
       { label: "Email", url: "mailto:vivek.m.chudasama@gmail.com" },
     ],
 
-    quickFacts: [
-      { text: "8+ years in ServiceNow development across ITSM & CSM." },
-      { text: "Virtual Agent rebuilds, live-agent routing, and CSM/Agent Workspace enablement." },
-      { text: "AI Search + NLU Workbench, multilingual experiences via Localization + Azure Translation." },
-      { text: "Integrations: Microsoft Teams, SAML authentication, CORS, custom URLs, Engagement Messenger." },
-      { text: "Open to relocation/remote roles in Canada, UAE, and Australia." },
-    ],
+  
+quickFacts: [
+  { text: "AI-first service experience: Virtual Agent + AI Search/NLU patterns to increase self‑service adoption and reduce ticket volume." },
+  { text: "ITSM modernization: ITIL-aligned workflows (Incident/Problem/Change) with Flow Designer automation and measurable SLA/efficiency improvements." },
+  { text: "CSM productivity & deflection: Workspace-first delivery (CSM/Agent Workspace), routing/assignment optimization, and faster case resolution." },
+  { text: "HRSD onboarding automation: secure role-based experiences, standardized processes, and integrations that streamline employee lifecycle requests." }
+],
+
 
     about: [
       "I am a certified ServiceNow Developer focused on delivering high-impact solutions across ITSM and CSM. I specialize in building reliable automations and user-friendly experiences, especially around Virtual Agent, Workspace experiences, and platform integrations.",
@@ -367,28 +368,63 @@
   if (domainTags) domainTags.innerHTML = profileData.domains.map((t) => `<span class="tag">${t}</span>`).join("");
 
   // Experience timeline
-  const timeline = document.getElementById("experienceTimeline");
-  if (timeline) {
-    timeline.innerHTML = profileData.experience
-      .map(
-        (exp) => `
-      <div class="tl-item">
-        <div class="tl-dot" aria-hidden="true"></div>
-        <div class="card tl-card">
-          <div class="tl-top">
-            <div>
-              <div class="tl-role">${exp.role}</div>
-              <div class="tl-company">${exp.company}</div>
+
+// ==============================
+// EXPERIENCE (Roles)
+// - Details button only
+// - Highlights preview shown under button
+// ==============================
+const timeline = document.getElementById("experienceTimeline");
+
+function getExperienceId(i) {
+  return `exp-${i}`;
+}
+
+function renderExperience(experienceList) {
+  if (!timeline) return;
+
+  timeline.innerHTML = experienceList
+    .map((exp, i) => {
+      const expId = getExperienceId(i);
+
+      // Show first 3 highlights as preview under the Details button
+      const preview = (exp.highlights || []).slice(0, 3);
+
+      return `
+        <div class="tl-item">
+          <div class="tl-dot" aria-hidden="true"></div>
+
+          <div class="card tl-card">
+            <div class="tl-top">
+              <div>
+                <div class="tl-role">${exp.role}</div>
+                <div class="tl-company">${exp.company}</div>
+              </div>
+              <div class="tl-dates">${exp.dates}</div>
             </div>
-            <div class="tl-dates">${exp.dates}</div>
+
+            <div class="actions" style="margin-top:10px">
+              <button class="btn ghost" data-action="details" data-type="experience" data-id="${expId}">
+                Details
+              </button>
+            </div>
+
+            <div class="highlights-preview">
+              <div class="highlights-title">Highlights</div>
+              <ul>
+                ${preview.map(h => `<li>${h}</li>`).join("")}
+              </ul>
+            </div>
           </div>
-          <ul class="tl-bullets">${exp.highlights.map((h) => `<li>${h}</li>`).join("")}</ul>
         </div>
-      </div>
-    `
-      )
-      .join("");
-  }
+      `;
+    })
+    .join("");
+}
+
+// Call it after profileData is defined:
+renderExperience(profileData.experience);
+
 
   // Project count
   const projectCount = document.getElementById("projectCount");
@@ -401,25 +437,54 @@
   let currentFilter = "all";
   let q = "";
 
-  function renderProjects(list) {
-    if (!projectsGrid) return;
-    projectsGrid.innerHTML = "";
-    list.forEach((p) => {
-      const el = document.createElement("article");
-      el.className = "card card-compact";
-      el.innerHTML = `
-        <div class="title">${p.title}</div>
-        <div class="meta">${p.category} · ${p.level} · ${p.duration}</div>
-        <p class="muted" style="margin:0">${p.description}</p>
-        <div class="badges">${(p.badges || []).map((b) => `<span class="badge">${b}</span>`).join("")}</div>
-        <div class="actions">
-          detailsDetails</button>
-          ${p.link}Open</a>
-        </div>
-      `;
-      projectsGrid.appendChild(el);
-    });
-  }
+
+// ==============================
+// PROJECTS
+// - Details button only (no Open)
+// - Highlights preview shown under button
+// ==============================
+const projectsGrid = document.getElementById("projectsGrid");
+
+function renderProjects(list) {
+  if (!projectsGrid) return;
+
+  projectsGrid.innerHTML = "";
+
+  list.forEach((p) => {
+    const preview = (p.details || []).slice(0, 2); // first 2 details as highlights preview
+
+    const el = document.createElement("article");
+    el.className = "card card-compact";
+
+    el.innerHTML = `
+      <div class="title">${p.title}</div>
+      <div class="meta">${p.category} · ${p.level} · ${p.duration}</div>
+      <p class="muted" style="margin:0">${p.description}</p>
+
+      <div class="badges">
+        ${(p.badges || []).map(b => `<span class="badge">${b}</span>`).join("")}
+      </div>
+
+      <div class="actions">
+        <button class="btn ghost" data-action="details" data-type="project" data-id="${p.id}">
+          Details
+        </button>
+      </div>
+
+      <div class="highlights-preview">
+        <div class="highlights-title">Highlights</div>
+        ${
+          preview.length
+            ? `<ul>${preview.map(d => `<li>${d}</li>`).join("")}</ul>`
+            : `<div class="muted">Highlights available in Details.</div>`
+        }
+      </div>
+    `;
+
+    projectsGrid.appendChild(el);
+  });
+}
+
 
   function updateProjects() {
     const filtered = profileData.projects.filter((p) => {
@@ -450,32 +515,98 @@
   }
 
   // Modal
-  const modal = document.getElementById("modal");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalBody = document.getElementById("modalBody");
-  const modalPrimary = document.getElementById("modalPrimary");
 
-  function openModal(project) {
-    if (!modal || !modalTitle || !modalBody || !modalPrimary) return;
-    modalTitle.textContent = project.title;
-    modalBody.innerHTML = `
-      <p class="muted" style="margin-top:0">${project.category} · ${project.level} · ${project.duration}</p>
-      <p>${project.description}</p>
-      ${
-        project.details && project.details.length
-          ? `<h4 style="margin:14px 0 8px">What I delivered</h4><ul>${project.details.map((d) => `<li>${d}</li>`).join("")}</ul>`
-          : ""
-      }
-      ${
-        project.badges && project.badges.length
-          ? `<div class="badges" style="margin-top:12px">${project.badges.map((b) => `<span class="badge">${b}</span>`).join("")}</div>`
-          : ""
-      }
-    `;
-    modalPrimary.href = project.link || "#";
-    modal.setAttribute("open", "");
-    modal.setAttribute("aria-hidden", "false");
+// ==============================
+// DETAILS MODAL (roles + projects)
+// ==============================
+const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modalTitle");
+const modalBody = document.getElementById("modalBody");
+const modalPrimary = document.getElementById("modalPrimary");
+
+function openModal(title, bodyHtml, link) {
+  if (!modal) return;
+  modalTitle.textContent = title;
+  modalBody.innerHTML = bodyHtml;
+
+  // We removed "Open" buttons, so we can hide primary link by default.
+  if (modalPrimary) {
+    if (link && link !== "#") {
+      modalPrimary.style.display = "inline-flex";
+      modalPrimary.href = link;
+      modalPrimary.textContent = "Open Link";
+    } else {
+      modalPrimary.style.display = "none";
+      modalPrimary.href = "#";
+    }
   }
+
+  modal.setAttribute("open", "");
+  modal.setAttribute("aria-hidden", "false");
+}
+
+function closeModal() {
+  if (!modal) return;
+  modal.removeAttribute("open");
+  modal.setAttribute("aria-hidden", "true");
+}
+
+if (modal) {
+  modal.addEventListener("click", (e) => {
+    if (e.target.matches("[data-close]")) closeModal();
+  });
+}
+
+// One handler for BOTH Experience + Projects
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest('button[data-action="details"]');
+  if (!btn) return;
+
+  const type = btn.dataset.type;
+  const id = btn.dataset.id;
+
+  if (type === "project") {
+    const p = profileData.projects.find(x => x.id === id);
+    if (!p) return;
+
+    openModal(
+      p.title,
+      `
+        <p class="muted" style="margin-top:0">${p.category} · ${p.level} · ${p.duration}</p>
+        <p>${p.description}</p>
+
+        ${p.details?.length ? `
+          <h4 style="margin:14px 0 8px">Full Details</h4>
+          <ul>${p.details.map(d => `<li>${d}</li>`).join("")}</ul>
+        ` : ""}
+
+        ${p.badges?.length ? `
+          <div class="badges" style="margin-top:12px">
+            ${p.badges.map(b => `<span class="badge">${b}</span>`).join("")}
+          </div>
+        ` : ""}
+      `,
+      p.link
+    );
+  }
+
+  if (type === "experience") {
+    const index = Number((id || "").replace("exp-", ""));
+    const exp = profileData.experience[index];
+    if (!exp) return;
+
+    openModal(
+      `${exp.role} — ${exp.company}`,
+      `
+        <p class="muted" style="margin-top:0">${exp.dates}</p>
+        <h4 style="margin:14px 0 8px">Full Highlights</h4>
+        <ul>${(exp.highlights || []).map(h => `<li>${h}</li>`).join("")}</ul>
+      `,
+      null
+    );
+  }
+});
+
 
   function closeModal() {
     if (!modal) return;
