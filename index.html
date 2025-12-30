@@ -5,44 +5,49 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vivek Chudasama | ServiceNow Portfolio</title>
-  <meta name="description" content="Vivek Chudasama — Senior ServiceNow Developer. ITSM, CSM, HRSD, Virtual Agent, AI Search, NLU, Integrations and Automation." />
+  <meta name="description" content="Vivek Chudasama — Senior ServiceNow Developer. ITSM, CSM, Virtual Agent, AI Search, NLU Workbench, Integrations, and Automation." />
 
-  <!-- VC favicon -->
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <!-- Favicon (VC) -->
+  favicon.svg
+  favicon.png
 
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Vivek Chudasama | ServiceNow Portfolio" />
+  <meta property="og:description" content="ITSM · CSM · Virtual Agent · AI Search · NLU · Integrations — projects, experience, skills & certifications." />
+  <meta property="og:type" content="website" />
 
-  <link rel="stylesheet" href="styles.css" />
+  https://fonts.googleapis.com
+  https://fonts.gstatic.com
+  https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap
+
+  styles.css
 </head>
 
 <body class="theme-dark">
-  <a class="skip-link" href="#main">Skip to content</a>
+  #mainSkip to content</a>
 
   <header class="site-header" role="banner">
     <div class="container header-wrap">
-      <a class="brand" href="#" aria-label="Home">
-        <span class="brand-mark" aria-hidden="true">VC</span>
+      #
+        <span class="brand-mark">VC</span>
         <span class="brand-text">Vivek Chudasama</span>
       </a>
 
       <nav class="nav" aria-label="Primary">
         <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">Menu</button>
         <ul id="primary-menu" class="menu">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li>#aboutAbout</a></li>
+          <li>#experienceExperience</a></li>
+          <li>#projectsProjects</a></li>
+          <li>#skillsSkills</a></li>
+          <li>#certificationsCertifications</a></li>
+          <li>#contactContact</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
+        <!-- IMPORTANT ID for theme -->
         <button id="themeToggle" class="icon-btn" aria-label="Toggle theme" aria-pressed="false">☀️</button>
-        <a class="btn ghost" id="resumeBtn" href="#" download>Download Résumé</a>
+        #Download Résumé</a>
       </div>
     </div>
   </header>
@@ -52,18 +57,21 @@
     <section class="hero" aria-label="intro">
       <div class="container hero-wrap">
         <div class="hero-text">
-          <p class="kicker" id="kickerRole">Senior ServiceNow Developer</p>
+          <p class="kicker">Senior ServiceNow Developer</p>
 
           <h1 class="hero-title">
             Build. Automate. Ship.
-            <span class="hero-title-sub">AI · ITSM · CSM · HRSD · Integrations</span>
+            <span class="hero-title-sub">ITSM · CSM · Virtual Agent · AI Search · Integrations</span>
           </h1>
 
-          <p class="hero-sub" id="heroSummary">Loading summary…</p>
+          <!-- IMPORTANT ID for summary -->
+          <p class="hero-sub" id="heroSummary">
+            Loading summary…
+          </p>
 
           <div class="hero-cta">
-            <a class="btn primary" href="#projects">Explore Projects</a>
-            <a class="btn ghost" href="#experience">View Experience</a>
+            #projectsExplore Projects</a>
+            #experienceView Experience</a>
           </div>
 
           <div class="hero-stats" aria-label="site stats">
@@ -72,17 +80,20 @@
               <div class="stat-label">Years Experience</div>
             </div>
 
+            <!-- IMPORTANT ID for visitor count -->
             <div class="stat">
               <div class="stat-num" id="visitorCount">—</div>
               <div class="stat-label">Visits (device)</div>
             </div>
 
+            <!-- IMPORTANT ID for project count -->
             <div class="stat">
               <div class="stat-num" id="projectCount">—</div>
               <div class="stat-label">Featured Projects</div>
             </div>
           </div>
 
+          <!-- IMPORTANT ID for links -->
           <div class="hero-links" id="heroLinks"></div>
         </div>
 
@@ -101,11 +112,11 @@
 
           <div class="mini-actions">
             <button class="btn ghost" id="copyEmail">Copy Email</button>
-            <a class="btn primary" href="#contact">Hire / Contact</a>
+            #contactHire / Contact</a>
           </div>
 
           <p class="fineprint">
-            This portfolio is data-driven. Edit content inside <code>app.js</code> under <strong>profileData</strong>.
+            Fully data-driven: update content in <code>app.js</code> under <strong>profileData</strong>.
           </p>
         </aside>
 
@@ -144,7 +155,7 @@
       <div class="container">
         <div class="section-head">
           <h2>Experience</h2>
-          <p class="muted">Roles with highlights. Click Details for full information.</p>
+          <p class="muted">Timeline of roles and achievements.</p>
         </div>
 
         <div class="timeline" id="experienceTimeline"></div>
@@ -156,23 +167,21 @@
       <div class="container">
         <div class="section-head">
           <h2>Featured Projects</h2>
-          <p class="muted">Selected work across AI, ITSM, CSM, HRSD and platform integrations.</p>
+          <p class="muted">Selected work across Virtual Agent, AI Search, integrations, ITSM/CSM automation.</p>
         </div>
 
         <div class="catalog-controls">
           <div class="search">
             <label for="searchInput" class="sr-only">Search projects</label>
-            <input id="searchInput" type="search" placeholder="Search (e.g., Virtual Agent, AI Search, Teams, HRSD)" autocomplete="off" />
+            <input id="searchInput" type="search" placeholder="Search projects (e.g., AI, HRSD, Teams, Portal)" autocomplete="off" />
           </div>
 
           <div class="filters" role="tablist" aria-label="Project filters">
             <button class="chip active" data-filter="all" role="tab" aria-selected="true">All</button>
-            <button class="chip" data-filter="AI" role="tab">AI</button>
-            <button class="chip" data-filter="ITSM" role="tab">ITSM</button>
             <button class="chip" data-filter="CSM" role="tab">CSM</button>
-            <button class="chip" data-filter="HRSD" role="tab">HRSD</button>
+            <button class="chip" data-filter="ITSM" role="tab">ITSM</button>
             <button class="chip" data-filter="Platform" role="tab">Platform</button>
-            <button class="chip" data-filter="Integrations" role="tab">Integrations</button>
+            <button class="chip" data-filter="AI" role="tab">AI</button>
           </div>
         </div>
 
@@ -185,7 +194,7 @@
       <div class="container">
         <div class="section-head">
           <h2>Skills</h2>
-          <p class="muted">A snapshot of technical strengths aligned to today’s ServiceNow job market.</p>
+          <p class="muted">A snapshot of technical strengths across platform, AI and integrations.</p>
         </div>
 
         <div class="skills-grid" id="skillsGrid"></div>
@@ -209,14 +218,14 @@
       <div class="container narrow">
         <div class="section-head">
           <h2>Contact</h2>
-          <p class="muted" id="openToLine">Open to remote/relocation roles.</p>
+          <p class="muted">Open to remote/relocation roles — Canada, UAE, Australia.</p>
         </div>
 
         <div class="card">
           <div class="contact-row">
             <div>
               <div class="label">Email</div>
-              <a id="emailLink" class="value" href="mailto:someone@example.com">someone@example.com</a>
+              mailto:someone@example.comsomeone@example.com</a>
             </div>
             <button class="btn ghost" id="copyEmail2">Copy</button>
           </div>
@@ -226,11 +235,11 @@
               <div class="label">Location</div>
               <div class="value" id="location">—</div>
             </div>
-            <a class="btn primary" id="mailtoBtn" href="mailto:someone@example.com?subject=ServiceNow%20Opportunity">Email Me</a>
+            mailto:someone@example.com?subject=ServiceNow%20OpportunityEmail Me</a>
           </div>
 
           <p class="fineprint">
-            Visitor count is stored locally per device (browser storage). For real analytics, add a tracking tool later.
+            Visitor count is stored locally per device. For real analytics, connect Google Analytics / Plausible / Netlify Analytics.
           </p>
         </div>
       </div>
@@ -242,11 +251,12 @@
 
       <div class="modal-card">
         <button class="icon-btn close" data-close aria-label="Close">✕</button>
-        <h3 id="modalTitle">Details</h3>
+        <h3 id="modalTitle">Project details</h3>
         <div id="modalBody" class="modal-body"></div>
 
         <div class="modal-actions">
-          <button class="btn primary" data-close>Done</button>
+          #Open Link</a>
+          <button class="btn ghost" data-close>Close</button>
         </div>
       </div>
     </div>
@@ -261,6 +271,7 @@
     </div>
   </footer>
 
-  <script src="app.js" defer></script>
+  <!-- IMPORTANT: defer ensures DOM exists before app.js runs -->
+  app.js</script>
 </body>
 </html>
